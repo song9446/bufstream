@@ -216,6 +216,9 @@ impl<S: Read + Write> Read for BufStream<S> {
     fn read(&mut self, buf: &mut [u8]) -> io::Result<usize> {
         self.inner.read(buf)
     }
+    fn read_exact(&mut self, buf: &mut [u8]) -> io::Result<()> {
+        self.inner.read_exact(buf)
+    }
 }
 
 impl<S: Read + Write> Write for BufStream<S> {
